@@ -1,21 +1,36 @@
-import { signOut } from "firebase/auth";
-import React from "react";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../utils/firebase";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { addUser, removeUser } from "../utils/userSlice";
+import { LOGO_URL } from "../utils/constants";
 
 const Header = () => {
   const navigate = useNavigate();
   const user = useSelector((store) => store.user);
-  console.log(user, "from header");
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/auth.user
+        const { uid, email, displayName, photoURL } = user;
+        dispatch(addUser({ uid, email, displayName, photoURL }));
+        navigate("/browse");
+      } else {
+        // User is signed out
+        dispatch(removeUser());
+        navigate("/");
+      }
+    });
+    return () => unsubscribe();
+  }, []);
+  // console.log(user, "from header");
   return (
     <div className="Header w-screen z-10 absolute px-8 py-2 bg-gradient-to-b from-black flex justify-between items-center">
       <div>
-        <img
-          className="w-44"
-          alt="logo"
-          src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
-        />
+        <img className="w-44" alt="logo" src={LOGO_URL} />
       </div>
       {user && (
         <div className="flex items-center">
@@ -23,7 +38,7 @@ const Header = () => {
             {user?.displayName}
           </p> */}
           <img
-            className="w-8 m-2 border border-yellow-900 rounded-3xl"
+            className="w-8 m-2  rounded-md"
             alt="userlogo"
             src={user?.photoURL}
           />
@@ -32,11 +47,11 @@ const Header = () => {
             onClick={() => {
               signOut(auth)
                 .then(() => {
-                  navigate("/");
                   // Sign-out successful.
                 })
                 .catch((error) => {
                   // An error happened.
+                  navigate("/error");
                 });
             }}
           >
