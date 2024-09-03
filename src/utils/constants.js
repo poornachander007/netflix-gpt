@@ -20,3 +20,18 @@ export const API_OPTIONS = {
 };
 
 export const IMG_CDN_URL = "https://image.tmdb.org/t/p/w780/";
+
+export const SUPPORTED_LANGUAGES = [
+  { id: "en", name: "English" },
+  { id: "hi", name: "हिंदी" },
+  { id: "te", name: "తెలుగు" },
+  { id: "es", name: "Español" },
+  { id: "fr", name: "Français" },
+  { id: "de", name: "Deutsch" },
+  { id: "it", name: "Italiano" },
+  { id: "ja", name: "日本語" },
+  { id: "ko", name: "한국인" },
+  { id: "pt", name: "Português" },
+  { id: "ru", name: "Русский" },
+  { id: "zh", name: "中国人" },
+];

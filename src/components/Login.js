@@ -25,8 +25,6 @@ const Login = () => {
   };
 
   const handleOnClickSubmit = () => {
-    console.log("Submit");
-
     const message = checkValidUserData(
       email.current.value,
       password.current.value
@@ -46,7 +44,7 @@ const Login = () => {
           // Signed up
 
           const user = userCredential.user;
-          // console.log(user);
+
           updateProfile(user, {
             displayName: name.current.value,
             photoURL: USER_AVATAR,
@@ -77,7 +75,6 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          console.log(user);
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -85,9 +82,6 @@ const Login = () => {
           setErrorMessage(errorCode + " : " + errorMessage);
         });
     }
-
-    // console.log(email.current.value);
-    // console.log(password.current.value);
   };
 
   return (

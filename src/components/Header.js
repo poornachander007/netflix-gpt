@@ -4,9 +4,12 @@ import { useNavigate } from "react-router-dom";
 import { auth } from "../utils/firebase";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
-import { LOGO_URL } from "../utils/constants";
+import { LOGO_URL, SUPPORTED_LANGUAGES } from "../utils/constants";
+import { toggleGPTPage } from "../utils/gptSlice";
+import { updateLanguage } from "../utils/configSlice";
 
 const Header = () => {
+  const showGPTPage = useSelector((store) => store.gpt.showGPTPage);
   const navigate = useNavigate();
   const user = useSelector((store) => store.user);
   const dispatch = useDispatch();
@@ -26,7 +29,14 @@ const Header = () => {
     });
     return () => unsubscribe();
   }, []);
-  // console.log(user, "from header");
+
+  const handleGPTSearchToggle = () => {
+    dispatch(toggleGPTPage());
+    dispatch(updateLanguage("en"));
+  };
+  const handleOnChangeLanguage = (e) => {
+    dispatch(updateLanguage(e.target.value));
+  };
   return (
     <div className="Header w-screen z-10 absolute px-8 py-2 bg-gradient-to-b from-black flex justify-between items-center">
       <div>
@@ -34,9 +44,25 @@ const Header = () => {
       </div>
       {user && (
         <div className="flex items-center">
-          {/* <p className="m-2 px-2 text-white rounded-lg self-stretch font-medium text-lg bg-gradient-to-t from-black">
-            {user?.displayName}
-          </p> */}
+          {showGPTPage && (
+            <select
+              onChange={handleOnChangeLanguage}
+              className="bg-gray-800 text-white px-3 py-1 rounded-sm mr-2"
+            >
+              {SUPPORTED_LANGUAGES.map((lang) => (
+                <option key={lang.id} value={lang.id}>
+                  {lang.name}
+                </option>
+              ))}
+            </select>
+          )}
+
+          <button
+            onClick={handleGPTSearchToggle}
+            className="bg-violet-700 text-white px-2 py-1 rounded-lg mr-2"
+          >
+            {showGPTPage ? "HomePage" : "GPTSearch"}
+          </button>
           <img
             className="w-8 m-2  rounded-md"
             alt="userlogo"
