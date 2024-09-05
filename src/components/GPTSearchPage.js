@@ -3,7 +3,7 @@ import GPTSuggestions from "./GPTSuggestions";
 
 const GPTSearchPage = () => {
   return (
-    <div>
+    <div className="">
       <GPTSearchBar />
       <GPTSuggestions />
     </div>

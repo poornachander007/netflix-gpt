@@ -5,7 +5,7 @@ const MovieList = ({ title, movies }) => {
   //   const movie = movies[0];
   return (
     <div className="MovieList">
-      <h1 className="text-3xl py-4 text-white">{title}</h1>
+      <h1 className="text-lg md:text-3xl py-2 md:py-4 text-white">{title}</h1>
       <div className="list flex overflow-x-scroll">
         <div className="cards flex pb-2">
           {movies?.map((movie) => (

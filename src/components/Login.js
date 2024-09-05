@@ -10,7 +10,7 @@ import { auth } from "../utils/firebase";
 
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
-import { USER_AVATAR } from "../utils/constants";
+import { BG_IMG_URL, USER_AVATAR } from "../utils/constants";
 const Login = () => {
   const dispatch = useDispatch();
 
@@ -56,13 +56,19 @@ const Login = () => {
             })
             .catch((error) => {
               // An error occurred
-              setErrorMessage(error.message);
+              let errorMessage = error.code;
+              setErrorMessage(errorMessage);
             });
         })
         .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          setErrorMessage(errorCode + " : " + errorMessage);
+          // const errorCode = error.code;
+          // const errorMessage = error.message;
+          let errorMessage = error.code;
+          if (errorMessage === "auth/email-already-in-use") {
+            errorMessage = "Email already in use. Please sign in.";
+          }
+          setErrorMessage(errorMessage);
+          // setErrorMessage(errorCode + " : " + errorMessage);
           // ..
         });
     } else {
@@ -77,9 +83,14 @@ const Login = () => {
           const user = userCredential.user;
         })
         .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          setErrorMessage(errorCode + " : " + errorMessage);
+          // const errorCode = error.code;
+          // const errorMessage = error.message;
+          let errorMessage = error.code;
+          if (errorMessage === "auth/invalid-credential") {
+            errorMessage = "Invalid email or password.";
+          }
+          setErrorMessage(errorMessage);
+          // setErrorMessage(errorCode + " : " + errorMessage);
         });
     }
   };
@@ -87,17 +98,18 @@ const Login = () => {
   return (
     <div className="">
       <Header />
-      <div className="absolute">
+      <div className="absolute w-full h-full">
         <img
+          className="w-full h-full object-cover fixed"
           alt="bannerIamge"
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/1d29f9a4-1900-43dc-a420-99044f734ee2/cc3b7bcb-3f79-449e-a37c-26ffb20fce3c/IN-en-20240826-POP_SIGNUP_TWO_WEEKS-perspective_WEB_7a193436-88c7-4f66-a8f0-e191d3b26d13_large.jpg"
+          src={BG_IMG_URL}
         />
       </div>
       <form
         onSubmit={(e) => {
           e.preventDefault();
         }}
-        className="w-3/12 absolute bg-black p-12 my-24 mx-auto right-0 left-0 text-white rounded-l bg-opacity-80"
+        className="md:h-auto md:w-3/12 absolute rounded-t-3xl bg-black p-12 my-24 mx-auto right-0 left-0 text-white md:rounded-lg bg-opacity-80"
       >
         <h1 className="font-bold text-3xl py-4">
           {isShowSignInForm ? "Sign In" : "Sign Up"}

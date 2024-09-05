@@ -14,8 +14,7 @@ export const API_OPTIONS = {
   method: "GET",
   headers: {
     accept: "application/json",
-    Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2YmNmMTQ2ZGM4OWRjMDQwNTk3ZTRmMWIzZGQ1OTQ2NCIsIm5iZiI6MTcyNTI4MzMwMi4zNTAyNCwic3ViIjoiNjZkNTdhYjQ4MjhiN2UxMzQwMzAyMjE1Iiwic2NvcGVzIjpbImFwaV9yZWFkIl0sInZlcnNpb24iOjF9.9OD-_RVpaGr0S35OFZZZmz8oxW4rj1l_4ODZ02UMeSk",
+    Authorization: "Bearer " + "REACT_APP_TMDB_KEY",
   },
 };
 
@@ -25,13 +24,21 @@ export const SUPPORTED_LANGUAGES = [
   { id: "en", name: "English" },
   { id: "hi", name: "हिंदी" },
   { id: "te", name: "తెలుగు" },
-  { id: "es", name: "Español" },
-  { id: "fr", name: "Français" },
-  { id: "de", name: "Deutsch" },
-  { id: "it", name: "Italiano" },
-  { id: "ja", name: "日本語" },
-  { id: "ko", name: "한국인" },
-  { id: "pt", name: "Português" },
-  { id: "ru", name: "Русский" },
-  { id: "zh", name: "中国人" },
+  // { id: "es", name: "Español" },
+  // { id: "fr", name: "Français" },
+  // { id: "de", name: "Deutsch" },
+  // { id: "it", name: "Italiano" },
+  // { id: "ja", name: "日本語" },
+  // { id: "ko", name: "한국인" },
+  // { id: "pt", name: "Português" },
+  // { id: "ru", name: "Русский" },
+  // { id: "zh", name: "中国人" },
 ];
+
+export const BG_IMG_URL =
+  "https://assets.nflxext.com/ffe/siteui/vlv3/1d29f9a4-1900-43dc-a420-99044f734ee2/cc3b7bcb-3f79-449e-a37c-26ffb20fce3c/IN-en-20240826-POP_SIGNUP_TWO_WEEKS-perspective_WEB_7a193436-88c7-4f66-a8f0-e191d3b26d13_large.jpg";
+
+// export const OPENAI_KEY =
+//   "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";
+
+export const OPENAI_KEY = "REACT_APP_OPENAI_KEY";
