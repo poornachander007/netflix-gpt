@@ -10,14 +10,6 @@ export const USER_AVATAR =
 export const MOVIES_URL =
   "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc";
 
-export const API_OPTIONS = {
-  method: "GET",
-  headers: {
-    accept: "application/json",
-    Authorization: "Bearer " + "REACT_APP_TMDB_KEY",
-  },
-};
-
 export const IMG_CDN_URL = "https://image.tmdb.org/t/p/w780/";
 
 export const SUPPORTED_LANGUAGES = [
@@ -42,3 +34,10 @@ export const BG_IMG_URL =
 //   "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";
 
 export const OPENAI_KEY = "REACT_APP_OPENAI_KEY";
+export const API_OPTIONS = {
+  method: "GET",
+  headers: {
+    accept: "application/json",
+    Authorization: "Bearer " + "REACT_APP_TMDB_KEY",
+  },
+};
