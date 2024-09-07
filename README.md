@@ -1,70 +1,235 @@
-# Getting Started with Create React App
+# Netflix GPT
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- Create React App
+- Configured TailwindCSS
+- Header
+- Routing of App
+- Login Form
+- Sign up Form
+- Form Validation
+- useRef Hook
+- Firebase Setup
+- Deploying our app to production
+- Create SignUp User Account
+- Implement Sign In user Api
+- Created Redux Store with userSlice
+- Implemented Sign out
+- Update Profile
+- BugFix: Sign up user displayName and profile picture update
+- BugFix: if the user is not logged in Redirect /browse to Login Page and vice-versa
+- Unsubscibed to the onAuthStateChanged callback
+- Add hardcoded values to the constants file
+- Regiter TMDB API & create an app & get access token
+- Get Data from TMDB now playing movies list API
+- Custom Hook for Now Playing Movies
+- Create movieSlice
+- Update Store with movies Data
+- Planning for MainContauiner & secondary container
+- Fetch Data for Trailer Video
+- Update Store with Trailer Video Data
+- Embedded the Yotube video and make it autoplay and mute
+- Tailwind Classes to make Main Container look awesome
+- Build Secondary Component
+- Build Movie List
+- build Movie Card
+- TMDB Image CDN URL
+- Made the Browsre page amazing with Tailwind CSS
+- usePopularMovies Custom hook
+- GPT Search Page
+- GPT Search Bar
+- (BONUS) Multi-language Feature in our App)
+- Get Open AI Api Key
+- Gpt Search API Call
+- fetched gptMoviesSuggestions from TMDB
+- created gptSlice added data
+- Resused Movie List component to make movie suggestion container
+- Memoization
+- Added .env file
+- Adding .env file to gitignore
+- Made our Site Responsive
 
-## Available Scripts
+# Features
 
-In the project directory, you can run:
+- Login/Sign Up
+  - Sign In /Sign up Form
+  - redirect to Browse Page
+- Browse (after authentication)
+  - Header
+  - Main Movie
+    - Tailer in Background
+    - Title & Description
+    - MovieSuggestions
+      - MovieLists \* N
+- NetflixGPT
+  - Search Bar
+  - Movie Suggestions
 
-### `npm start`
+# Project Setup
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Before starting the project please add .env file and add TMDB and OPENAI KEY into it.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# -------------------------------------------------------------------------------------------------
 
-### `npm test`
+# -------------------------------------------------------------------------------------------------
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# -------------------------------------------------------------------------------------------------
 
-### `npm run build`
+# Netflix GPT Documentation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Overview
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Netflix GPT is a movie recommendation web app built with React, Tailwind CSS, Firebase, and OpenAI APIs. The app integrates TMDB (The Movie Database) API to fetch movie data and OpenAI to enhance the search experience using GPT-powered suggestions. It includes user authentication, movie browsing, search functionality, and multi-language support.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Features
 
-### `npm run eject`
+### Authentication
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **Sign Up/Sign In Forms**: Users can create an account or log in to an existing one.
+- **Form Validation**: Ensures correct input on login and sign-up forms.
+- **Sign Out**: Allows users to log out of the application.
+- **Redirects**: Added functionality to redirect users who aren't logged in to the login page when trying to access
+  `/browse` and vice versa.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Movie Browsing (Post Authentication)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- **Main Movie Section**: Displays a featured movie with a trailer playing in the background, title, and description.
+- **Movie Suggestions**: Provides recommendations of movies using the TMDB API.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Netflix GPT
 
-## Learn More
+- **Search Bar**: The app features two types of search inputs:
+  1. **Search by Name in TMDB**: Allows users to search for movies by name using TMDB.
+  2. **Search by Prompt using GPT AI**: Uses OpenAI to generate movie suggestions based on user prompts.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Multi-language Support
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- The app offers multi-language support, allowing users to interact with the app in various languages.
 
-### Code Splitting
+### Responsive Design
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- The application is fully responsive and optimized for different screen sizes, thanks to Tailwind CSS.
 
-### Analyzing the Bundle Size
+## Project Setup
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Prerequisites
 
-### Making a Progressive Web App
+- Install [Node.js](https://nodejs.org/) (version 14.x or later).
+- Install [Firebase CLI](https://firebase.google.com/docs/cli).
+- Obtain API keys for:
+  - TMDB (The Movie Database)
+  - OpenAI (for GPT functionality)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Installation Steps
 
-### Advanced Configuration
+1. **Clone the Repository**:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+   ```bash
+      git clone <repository-url>
+      cd netflix-gpt
+   ```
 
-### Deployment
+2. **Install Dependencies**:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+   ```bash
+      npm install
+   ```
 
-### `npm run build` fails to minify
+3. **Configure Environment Variables**:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+   - Create a `.env` file in the root of the project.
+   - Add your TMDB and OpenAI API keys:
+     ```
+     REACT_APP_TMDB_API_KEY=<your-tmdb-api-key>
+     REACT_APP_OPENAI_API_KEY=<your-openai-api-key>
+     ```
+
+4. **Tailwind CSS Configuration**:
+
+   - Tailwind CSS has been pre-configured. Ensure that your environment supports PostCSS.
+
+5. **Firebase Setup**:
+
+   - Configure Firebase in the project by adding your Firebase credentials.
+   - Set up authentication, Firestore (if necessary), and hosting (if deploying to Firebase).
+
+6. **Run the Project Locally**:
+
+   ```bash
+   npm start
+   ```
+
+7. **Deployment**:
+   - For deployment, you can use Firebase Hosting:
+     ```bash
+     firebase deploy
+     ```
+
+## Key Components
+
+### Header
+
+- Provides navigation links and displays the user's profile details.
+
+### Routing
+
+- The app uses React Router for handling navigation. The routes include:
+  - **Login**: `/login`
+  - **Browse**: `/browse`
+
+### Forms
+
+- **Login Form**: Handles user login with validation.
+- **Sign Up Form**: Allows new users to create an account, with validation and error handling.
+
+### Firebase Authentication
+
+- The app uses Firebase for user authentication.
+- **Sign Up/Sign In** APIs are implemented to handle user authentication.
+
+### Redux Store
+
+- The app uses Redux for state management. Key slices include:
+  - `userSlice`: Handles user-related state (e.g., authentication).
+  - `movieSlice`: Stores movie data fetched from TMDB.
+  - `gptSlice`: Manages GPT-generated movie suggestions.
+
+### Movie Data Fetching
+
+- **TMDB API Integration**: The app fetches data like "Now Playing" movies using TMDB APIs.
+- **Custom Hooks**:
+  - `useMovieTrailer`: Fetches movie trailer data from TMDB.
+  - `useNowPlayingMovies`: Fetches now-playing movies.
+  - `usePopularMovies`: Fetches popular movies.
+  - `useTopRatedMovies`: Fetches top-rated movies.
+  - `useUpcomingMovies`: Fetches upcoming movies.
+
+### Video Playback
+
+- The main movie section includes an embedded YouTube video that auto-plays and is muted by default.
+
+### Search Functionality
+
+- **Two Search Inputs**:
+  1. **Search by Name**: Uses TMDB API to search movies by title.
+  2. **Search by Prompt**: Uses OpenAI GPT to generate movie recommendations based on user input.
+
+## Constants
+
+- All hardcoded values are stored in a separate constants file for easier management and updates.
+
+## Enhancements
+
+- **Memoization**: Optimized performance by memoizing expensive operations and component rendering.
+- **Environment Variables**: Sensitive data (API keys) are stored in `.env` files and excluded from version control using `.gitignore`.
+
+## Future Enhancements
+
+- Improved recommendation algorithms.
+- Enhanced user profile customization.
+- More robust error handling and user feedback.
+
+### Contact and Support
+
+For any questions or support, feel free to reach out to me.
+
+---
