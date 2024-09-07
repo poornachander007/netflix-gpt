@@ -78,7 +78,7 @@ const GPTSearchBar = () => {
       className="pl-1 pb-1 w-full bg-gray-900 m-auto rounded-md"
     >
       <label
-        className="md:p-4 text-white opacity-70 text-[5px] md:text-sm"
+        className="md:p-4 text-white opacity-70 text-[9px] md:text-sm"
         htmlFor="searchinput"
       >
         {isGPTSearch ? lang[langID].gptSearchlabel : lang[langID].dbSearchlabel}
@@ -87,7 +87,7 @@ const GPTSearchBar = () => {
         <input
           id="searchinput"
           ref={isGPTSearch ? searchTextGPT : searchTextDB}
-          className="col-span-9 px-1 md:p-4 rounded-sm md:rounded-lg outline-none text-[5px] md:text-lg font-serif font-thin opacity-60 "
+          className="col-span-9 px-2  md:p-4 rounded-sm md:rounded-lg outline-none text-[9px] md:text-lg font-serif font-thin opacity-60 "
           type="text"
           placeholder={
             lang[langID]
@@ -97,7 +97,7 @@ const GPTSearchBar = () => {
         />
         <button
           onClick={() => handleOnclickGPTSearchButton(isGPTSearch)}
-          className="col-span-3 bg-violet-600 mx-1 md:ml-4 text-[8px] md:text-[18px] text-amber-100 rounded-sm md:rounded-md md:px-2 font-serif md:font-semibold opacity-80"
+          className="col-span-3 bg-violet-600 p-2 mx-1 md:ml-4 text-[9px] md:text-[18px] text-amber-100 rounded-sm md:rounded-md md:px-2 font-serif md:font-semibold opacity-80"
         >
           {lang[langID] ? lang[langID]?.search : lang["en"].search}
         </button>
@@ -142,10 +142,10 @@ const GPTSearchBar = () => {
         </button>
       </form> */}
       <div className="w-full md:flex justify-between items-center mt-[33%] md:mt-[7%] px-1 md:px-8">
-        <div className="w-3/4 m-auto md:w-1/2 md:m-1 md:mw-1/3 mb-2">
+        <div className="w-[90%] mx-auto md:w-1/2 md:m-1 md:mw-1/3 mb-2">
           {renderForm(false)}
         </div>
-        <div className="w-3/4 m-auto md:w-1/2 md:m-1 md:mw-1/3">
+        <div className="w-[90%] mx-auto md:w-1/2 md:m-1 md:mw-1/3 mb-2">
           {renderForm(true)}
         </div>
       </div>
