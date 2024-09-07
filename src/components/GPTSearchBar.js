@@ -141,9 +141,13 @@ const GPTSearchBar = () => {
           {lang[langID] ? lang[langID]?.search : lang["en"].search}
         </button>
       </form> */}
-      <div className="w-full flex justify-between items-center mt-[33%] md:mt-[7%] px-1 md:px-8">
-        <div className="w-1/2 m-1 md:mw-1/3">{renderForm(false)}</div>
-        <div className="w-1/2 m-1">{renderForm(true)}</div>
+      <div className="w-full md:flex justify-between items-center mt-[33%] md:mt-[7%] px-1 md:px-8">
+        <div className="w-3/4 m-auto md:w-1/2 md:m-1 md:mw-1/3 mb-2">
+          {renderForm(false)}
+        </div>
+        <div className="w-3/4 m-auto md:w-1/2 md:m-1 md:mw-1/3">
+          {renderForm(true)}
+        </div>
       </div>
     </div>
   );
